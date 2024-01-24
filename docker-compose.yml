@@ -1,0 +1,32 @@
+version: '3' 
+
+services:
+  mysql:
+    image: mysql:latest 
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: pharmproject
+
+    ports:
+      - 3306:3306
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 9015:80 
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: mysql
+  laravel-docker:
+    container_name: mine-docker 
+    build: .
+    volumes:
+      - ./:/var/www/html
+      - laravel-storage:/var/www/html/storage
+    command: ["./setup.sh"]
+    ports:
+      - 9005:80
+    env_file: ./.env
+    depends_on:
+      - mysql
+volumes:
+  laravel-storage:
