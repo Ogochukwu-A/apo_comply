@@ -1,0 +1,20 @@
+{
+  "public/images/banner-5.jpg": {
+    "file": "assets/banner-5-5329fbc9.jpg",
+    "src": "public/images/banner-5.jpg"
+  },
+  "public/images/banner1.jpeg": {
+    "file": "assets/banner1-5c349929.jpeg",
+    "src": "public/images/banner1.jpeg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-e1e40cc8.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-1c469ada.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}

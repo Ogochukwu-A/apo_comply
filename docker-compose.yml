@@ -6,7 +6,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: test
       MYSQL_DATABASE: pharmproject
-
     ports:
       - 3306:3306
   phpmyadmin:
@@ -17,12 +16,11 @@ services:
       PMA_ARBITRARY: 1
       PMA_HOST: mysql
   laravel-docker:
-    container_name: mine-docker 
+    container_name: apocomply-docker 
     build: .
     volumes:
       - ./:/var/www/html
       - laravel-storage:/var/www/html/storage
-    command: ["./setup.sh"]
     ports:
       - 9005:80
     env_file: ./.env

@@ -28,6 +28,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy only the composer files first to leverage caching
 COPY composer.json composer.lock ./
 
+# Copy the build folder 
+COPY build ./
+
 # Install dependencies
 RUN composer install --no-scripts --no-autoloader
 
@@ -40,7 +43,9 @@ RUN chown -R www-data:www-data storage bootstrap/cache \
     && composer dump-autoload --optimize \
     && php artisan config:clear \
     && php artisan config:cache \
-    && php artisan route:cache
+    && php artisan route:cache \
+    && chmod -R 755 public \ 
+    && chmod -R 755 public/icons
     
 
 # Install Node.js and npm
