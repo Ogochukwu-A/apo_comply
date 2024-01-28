@@ -21,17 +21,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/', [LandingController::class, 'index']);
 
-Route::get('/about', [LandingController::class, 'about'])->name('about');
+Route::get('/about', [LandingController::class, 'about']);
 
-Route::get('/services', [LandingController::class, 'services'])->name('services');
+Route::get('/services', [LandingController::class, 'services']);
 
-Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
+Route::get('/contact', [LandingController::class, 'contact']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
 
@@ -72,9 +72,9 @@ Route::middleware('auth')->group(function () {
     
     // end appointment dashboard
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 

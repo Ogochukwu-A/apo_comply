@@ -45,7 +45,7 @@ RUN chown -R www-data:www-data storage bootstrap/cache \
     && php artisan config:cache \
     && php artisan route:cache \
     && chmod -R 755 public \ 
-    && chmod -R 755 public/icons
+    && chmod -R 755 public/icons 
     
 
 # Install Node.js and npm
@@ -75,7 +75,7 @@ RUN [ ! -e /etc/apache2/sites-enabled/000-default.conf ] && ln -s /etc/apache2/s
 
 # Set correct permissions
 RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chmod -R 755 /var/www/html/storage /var/www/html/storage/logs /var/www/html/bootstrap/cache \
     && chmod -R 755 /var/www/html/setup.sh
 
 # PHP Extension
