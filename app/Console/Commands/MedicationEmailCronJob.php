@@ -95,9 +95,24 @@ class MedicationEmailCronJob extends Command
 
     private function sendMedicationEmail($prescription, $hoursLater = 0)
     {
+        $from = getenv('MAIL_FROM_ADDRESS');
+        $from_name = getenv('MAIL_FROM_NAME');
+        
+        $email = $prescription->email;
+    
         $scheduledTime = now()->addHours($hoursLater);
 
-        Mail::to($prescription->email)->later($scheduledTime, new MedicationEmail($prescription));
+        $twilioController = new TwilioServiceController();
+    
+        $emailContent = $twilioController->generateEmailMedicationBody($prescription);
+        
+        $subject = "Medication Reminder";
+        
+        $send_email = $twilioController->send_email($subject, $from, $from_name, $email,$emailContent);
+
+        // $prescription->email = $user_email ?? null;
+        
+        // Mail::to($prescription->email)->later($scheduledTime, new MedicationEmail($prescription));
 
         $twilioController = new TwilioServiceController();
         $sendSms = $twilioController->send_sms($prescription->phone, 'Your SMS message here');

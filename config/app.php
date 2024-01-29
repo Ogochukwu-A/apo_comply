@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://humble-potato-4j79r7qwp5rc7j7p-9005.app.github.dev'),
 
     'asset_url' => env('ASSET_URL'),
 

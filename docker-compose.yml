@@ -23,6 +23,7 @@ services:
       - laravel-storage:/var/www/html/storage
     ports:
       - 9005:80
+      - 443:443
     env_file: ./.env
     depends_on:
       - mysql
