@@ -63,7 +63,9 @@ class TwilioServiceController extends Controller
         'bodyHtml' => $content,
     ]);
 
-    // return $response; 
+
+
+    // dd($response); 
     // Decode the JSON
     $responseData = json_decode($response, true);
     

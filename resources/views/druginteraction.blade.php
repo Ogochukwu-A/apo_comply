@@ -59,7 +59,7 @@
                                             x-on:click.prevent="$dispatch('open-modal', 'confirm-drug-deletion{{ $value->name }}')"
                                             class="bg-red-500 hover:bg-red-800 text-white p-3 rounded-lg "
                                             title="Delete {{ ucwords($value->medication_name) }}">
-                                            <img src="{{ asset('./icons/delete.svg') }}" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" height="24" viewBox="0 -960 960 960" width="24"><path d="M312-172q-25 0-42.5-17.5T252-232v-488h-40v-28h148v-28h240v28h148v28h-40v488q0 26-17 43t-43 17H312Zm368-548H280v488q0 14 9 23t23 9h336q12 0 22-10t10-22v-488ZM402-280h28v-360h-28v360Zm128 0h28v-360h-28v360ZM280-720v520-520Z"/></svg>
                                         </button>
 
                                         <x-modal name="confirm-drug-deletion{{ $value->name }}" :show="$errors->drugDeletion->isNotEmpty()"
@@ -100,7 +100,7 @@
                 </div>
                 <div class="w-full bg-teal-800 p-4 rounded-lg">
                     <!-- Drug Search Form -->
-                    <form method="POST" action="{{ route('drugs.add') }}">
+                    <form method="POST" action="/drugs/add">
                         @csrf
                         <div class="w-full">
                             <input type="text" name="search_input" id="searchInput" class="rounded-lg"

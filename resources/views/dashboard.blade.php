@@ -14,31 +14,37 @@
             </div> --}}
 
             <div class="grid lg:grid-cols-4  sm:grid-cols-1 w-full gap-6 justify-center align-middle mx-auto">
-                <a href="{{route('healthinfo.index')}}"> 
+                <a href="/health-info"> 
                     <div class="bg-teal-800 text-white w-full flex flex-row justify-center p-6 rounded-lg hover:bg-white hover:text-teal-800 hover:ring-2 hover:ring-teal-800 duration-300">
                     
                     <p>My Health Info</p>
                 </div>
                 </a>
-                <a href="{{route('reminder.index')}}"> 
+                <a href="/reminder"> 
                 <div class="bg-teal-800 text-white w-full flex flex-row justify-center p-6 rounded-lg hover:bg-white hover:text-teal-800 hover:ring-2 hover:ring-teal-800 duration-300">
                     <img />
                     <p>Reminder</p>
                 </div>
                 </a>
-                <a href="{{route('druginteraction.index')}}">
+                <a href="/drug-interaction">
                 <div class="bg-teal-800 text-white w-full flex flex-row justify-center p-6 rounded-lg hover:bg-white hover:text-teal-800 hover:ring-2 hover:ring-teal-800 duration-300">
                     <img />
                     <p>Drug Interaction</p>
                 </div>
                 </a>
-                <a href="{{route('chatbot.index')}}">
+                <a href="/chatbot">
                     <div class="bg-teal-800 text-white w-full flex flex-row justify-center p-6 rounded-lg hover:bg-white hover:text-teal-800 hover:ring-2 hover:ring-teal-800 duration-300">
                         <img />
                         <p>AI Chatbot</p>
                     </div>
                 </a>
-                <a href="{{route('contact')}}"> 
+                <a href="/appointment">
+                    <div class="bg-teal-800 text-white w-full flex flex-row justify-center p-6 rounded-lg hover:bg-white hover:text-teal-800 hover:ring-2 hover:ring-teal-800 duration-300">
+                        <img />
+                        <p>Appointment</p>
+                    </div>
+                </a>
+                <a href="/contact"> 
                 <div class="bg-teal-800 text-white w-full flex flex-row justify-center p-6 rounded-lg hover:bg-white hover:text-teal-800 hover:ring-2 hover:ring-teal-800 duration-300">
                     <img />
                     <p>Contact</p>

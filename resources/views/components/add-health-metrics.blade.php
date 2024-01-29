@@ -3,7 +3,7 @@
         <h3 class="text-center p-6"> Add Health Metrics </h3>
     </div>
     <div class="bg-teal-800 text-white rounded-lg text-center w-100 p-6">
-        <form method="POST" action="{{ route('healthinfo.add_health_metrics') }}" class="w-full">
+        <form method="POST" action="/health-info/add-health-metrics" class="w-full">
             @csrf
             {{-- sugar_level, pulse_rate, blood_pressure_top_value, blood_pressure_bottom_value --}}
 

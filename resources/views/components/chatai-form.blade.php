@@ -1,5 +1,5 @@
 <div class="p-2 justify-items-center">
-    <form action="{{route('chatbot.response')}}" method="POST">
+    <form action="/get-bot-response" method="POST">
         @csrf 
         <div class="flex flex-row justify-start m-4 ms-3">
             <x-text-input id="chat_input" class="block mt-1 w-full text-teal-800"

@@ -11,7 +11,7 @@
             <p class="m-4 text-3xl ">Book appointment here</p>
 
             {{-- patient_name,patient_email,patient_subject, patient_appointment_time, patient_appointment_date, patient_description--}}
-            <form method="POST" action="{{route('appointment.save_appointment')}}" class="m-6 -my-3">
+            <form method="POST" action="/save-appointment" class="m-6 -my-3">
                 @csrf
                 @method('POST')
                 <div class="grid grid-flow-row grid-cols-2 gap-4">
