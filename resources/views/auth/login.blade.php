@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="/login">
         @csrf
 
         <!-- Email Address -->
@@ -34,13 +34,13 @@
 
         <div class="flex items-center justify-center mt-4 p-1/2">
             @if (Route::has('password.request'))
-                <a class="underline text-start text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                <a class="underline text-start text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="/forgot-password">
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
            
             @if (Route::has('register'))
-                <a class="underline mx-1 text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+                <a class="underline mx-1 text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="/register">
                     {{ __('Register Here') }}
                 </a>
             @endif
