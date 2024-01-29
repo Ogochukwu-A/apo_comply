@@ -98,7 +98,7 @@ public function generateEmailAppointmentBody($appointment_details) {
                 <p><strong>Applicant Email:</strong> {$appointment_details['applicant_email']}</p>
                 <p><strong>Subject:</strong> {$appointment_details['patient_subject']}</p>
                 <p>Thank you for choosing our service.</p>
-                <p>Best regards,<br>Your Company Name</p>
+                <p>Best regards,<br>ApoComply</p>
             </div>
         </body>
         </html>
