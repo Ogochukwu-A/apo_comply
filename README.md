@@ -1,64 +1,84 @@
-﻿# Laravel Docker 🐳
+# Apocomply Project Setup with Docker
 
-<p align="center">
-<img src="https://repository-images.githubusercontent.com/604504498/60f54e29-db30-401a-9d2f-d14864cd5be0">
-</p>
-A generic docker environment for Laravel with mySql and Nginx
+This repository provides a Dockerized setup for Laravel projects, making it easy to set up and run your Laravel applications in a containerized environment.
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed on your machine:
+
+- Docker: [Install Docker](https://docs.docker.com/get-docker/)
+- Docker Compose: [Install Docker Compose](https://docs.docker.com/compose/install/)
+
+## Getting Started
+
+1. Clone the repository:
+
+    ```bash
+    git clone <repository-url.git>
+    cd <project-directory>
+    ```
+
+2. Create a copy of the `.env.example` file and name it `.env`:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+3. Open the `.env` file and configure your Laravel application settings.
+   Database credentials must match that in the docker-compose.yml file
+    - DB_CONNECTION=mysql
+    - DB_HOST=mysql
+    - DB_PORT=3306
+    - DB_DATABASE=pharmproject
+    - DB_USERNAME=root
+    - DB_PASSWORD=test
+    Also you need to configure your app details such as APP_URL,APP_NAME, APP_ENV=local, APP_KEY, APP_DEBUG=true etc.
+    - APP_NAME=Apo-Comply-Reminder-App
+    - APP_ENV=local
+    - APP_KEY=
+    - APP_DEBUG=true
+    - APP_URL=http://localhost
 
 
-## Insstallation
+5. Build the Docker containers:
 
-1. Click [Use this template](https://github.com/rakibdevs/laravel-docker/generate)
-2. Clone the repository containing the `docker-compose.yml` file.
-3. Run the following command to build the Docker image:
+    ```bash
+    docker-compose build
+    ```
+
+6. Start the Docker containers:
+
+    ```bash
+    docker-compose up -d
+    ```
+
+7. Install Laravel dependencies:
+
+    ```bash
+    docker-compose exec app composer install
+    ```
+
+8. Generate the application key:
+
+    ```bash
+    docker-compose exec app php artisan key:generate
+    ```
+
+9. Run the database migrations:
+
+    ```bash
+    docker-compose exec app php artisan migrate
+    ```
+10. Run the database seeder:
+
+    ```bash
+    docker-compose exec app
+
+10. Check your ports menu beside the terminal menu. Your laravel project will be run on the port 9005 as configured in your docker-compose.yml file. Click on the link attached to the port 9005 in your web browser, and you should see your Laravel application.
+
+## Running Commands
+
+To run Artisan commands or any other commands in the app container, you can use `docker-compose exec app <command>`:
 
 ```bash
-$ docker compose build
-```
-This command will download all the necessary dependencies and build the Docker image according to the specifications in the Dockerfile.
-
-4. Once the build is complete, run the following command to start the Docker container: 
-```bas
-$ docker-compose up -d
-```
-5. Run the following command to create a new Laravel project inside a src directory:
-```bash
-$ sudo chmod 777 src/
-$ docker compose exec php composer create-project --prefer-dist laravel/laravel .
-```
-This command will install all the necessary dependencies and create a new Laravel project inside the src directory.
-
-6. Run other esential commands -
-```bash
-$ docker compose exec php php artisan storage:link
-$ docker compose exec php chmod -R 777 storage bootstrap/cache
-```
-7. Run the following command to migrate database `docker compose exec php php artisan migrate:refresh`. Before migration please update environment variable for database.
-```DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=root
-DB_PASSWORD=1234
-```
-
-## Acces Webpage
-To access the web page for your Laravel project, please follow these steps:
-
-Ensure that the Docker container is running by running the command docker ps in your terminal or command prompt. This command will display a list of all the running Docker containers on your system.
-
-Open a web browser and navigate to the following URL: http://localhost:8999. This URL corresponds to the port that has been exposed in the `docker-compose.yml` file for the Nginx service.
-
-## How to setup different PHP version?
-To update the PHP version for your Docker container, please follow these steps:
-
-Open the `Dockerfile` for your PHP image, which is located in the `docker/php/` directory.
-
-Update the FROM statement to use the base image for the PHP version you want to use. For example, to use PHP version 7.4, you can change the FROM statement to the following:
-
-```bash
-FROM php:7.4-fpm
-```
-Save the Dockerfile and build the Docker image again using the `docker-compose build` command.
-
-Once the build is complete, start the Docker container using the `docker-compose up` command.
+docker-compose exec app php artisan migrate
