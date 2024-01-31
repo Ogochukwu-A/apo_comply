@@ -32,6 +32,7 @@ Before you begin, ensure you have the following installed on your machine:
     - DB_DATABASE=pharmproject
     - DB_USERNAME=root
     - DB_PASSWORD=test
+   // --------------------- //
     Also you need to configure your app details such as APP_URL,APP_NAME, APP_ENV=local, APP_KEY, APP_DEBUG=true etc.
     - APP_NAME=Apo-Comply-Reminder-App
     - APP_ENV=local
@@ -72,7 +73,7 @@ Before you begin, ensure you have the following installed on your machine:
 10. Run the database seeder:
 
     ```bash
-    docker-compose exec app
+    docker-compose exec laravel-docker php artisan db:seed
 
 10. Check your ports menu beside the terminal menu. Your laravel project will be run on the port 9005 as configured in your docker-compose.yml file. Click on the link attached to the port 9005 in your web browser, and you should see your Laravel application.
 
