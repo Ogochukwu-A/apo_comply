@@ -56,19 +56,19 @@ Before you begin, ensure you have the following installed on your machine:
 7. Install Laravel dependencies:
 
     ```bash
-    docker-compose exec app composer install
+    docker-compose exec laravel-docker composer install
     ```
 
 8. Generate the application key:
 
     ```bash
-    docker-compose exec app php artisan key:generate
+    docker-compose exec laravel-docker php artisan key:generate
     ```
 
 9. Run the database migrations:
 
     ```bash
-    docker-compose exec app php artisan migrate
+    docker-compose exec laravel-docker php artisan migrate
     ```
 10. Run the database seeder:
 
@@ -82,4 +82,4 @@ Before you begin, ensure you have the following installed on your machine:
 To run Artisan commands or any other commands in the app container, you can use `docker-compose exec app <command>`:
 
 ```bash
-docker-compose exec app php artisan migrate
+docker-compose exec laravel-docker php artisan migrate
